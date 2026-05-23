@@ -1,147 +1,62 @@
-html{
-    scroll-behavior:smooth;
-}
-
-/* CSS VARIABLES */
-
-:root{
-    --bg-color:linear-gradient(
-    135deg,
-    #0f172a,
-    #1e293b
-    );
-
-    --text-color:white;
-
-    --card-color:#1e293b;
-}
-
-/* LIGHT MODE */
-
-.dark-mode{
-    --bg-color:white;
-
-    --text-color:#111827;
-
-    --card-color:#f5f5f5;
-}
-
-/* BODY */
-
 body{
-    min-height:100vh;
 
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 
-    margin:0;
+    background:#0f172a;
 
-    padding:0;
+    color:white;
 
-    background-image:var(--bg-color);
-
-    color:var(--text-color);
-
-    transition:0.3s;
-}
-
-/* HEADER */
-
-header{
     display:flex;
 
-    justify-content:space-between;
+    justify-content:center;
 
     align-items:center;
 
+    min-height:100vh;
+
+    margin:0;
+}
+
+.container{
+
+    width:400px;
+
+    background:#1e293b;
+
     padding:20px;
 
-    background:var(--card-color);
+    border-radius:15px;
 
-    color:var(--text-color);
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* NAVIGATION */
+h1{
+    text-align:center;
+}
 
-.nav-links{
+.input-section{
+
     display:flex;
 
-    gap:20px;
-
-    list-style:none;
-}
-
-.nav-links a{
-    color:var(--text-color);
-
-    text-decoration:none;
-
-    position:relative;
-}
-
-/* NAVBAR HOVER */
-
-.nav-links a:hover{
-    color:#60a5fa;
-}
-
-.nav-links a::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:0;
-
-    height:2px;
-
-    background:#60a5fa;
-
-    left:0;
-
-    bottom:-5px;
-
-    transition:0.3s;
-}
-
-.nav-links a:hover::after{
-    width:100%;
-}
-
-/* HERO SECTION */
-
-.hero{
-    text-align:center;
-
-    padding:140px 20px;
-}
-
-/* HERO ANIMATION */
-
-.hero-content{
-    animation:fadeIn 1.5s ease;
-}
-
-/* PROFILE IMAGE */
-
-.profile-img{
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    object-fit:cover;
+    gap:10px;
 
     margin-bottom:20px;
-
-    border:4px solid #60a5fa;
 }
 
-/* BUTTON */
+input{
+
+    flex:1;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:5px;
+}
 
 button{
-    padding:10px 20px;
+
+    padding:10px;
 
     border:none;
 
@@ -152,103 +67,44 @@ button{
     border-radius:5px;
 
     cursor:pointer;
-
-    transition:0.3s;
 }
-
-/* BUTTON HOVER */
 
 button:hover{
-    transform:scale(1.05);
+    background:#1d4ed8;
 }
 
-/* SKILLS SECTION */
+.filters{
 
-.skills-container{
-    display:grid;
+    display:flex;
 
-    grid-template-columns:
-    repeat(auto-fit,minmax(200px,1fr));
+    justify-content:space-between;
 
-    gap:20px;
-
-    padding:20px;
+    margin-bottom:20px;
 }
 
-/* SKILL CARDS */
+li{
 
-.skill-card{
+    background:#334155;
 
-    background:var(--card-color);
+    margin-bottom:10px;
 
-    padding:30px;
+    padding:10px;
 
-    border-radius:10px;
+    border-radius:5px;
 
-    text-align:center;
+    display:flex;
 
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    justify-content:space-between;
 
-    transition:0.3s;
+    align-items:center;
 }
 
-/* CARD HOVER */
-
-.skill-card:hover{
-    transform:translateY(-10px);
+.completed{
+    text-decoration:line-through;
+    opacity:0.6;
 }
 
-/* FOOTER */
-
-footer{
-
-    text-align:center;
-
-    padding:30px;
-
-    background:#111827;
-
-    color:white;
-
-    margin-top:40px;
-}
-
-/* RESPONSIVE DESIGN */
-
-@media(max-width:768px){
-
-    header{
-        flex-direction:column;
-
-        gap:20px;
-    }
-
-    .nav-links{
-        flex-direction:column;
-
-        align-items:center;
-    }
-
-    .hero{
-        padding:50px 20px;
-    }
-
-}
-
-/* ANIMATION */
-
-@keyframes fadeIn{
-
-    from{
-        opacity:0;
-
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-
-        transform:translateY(0);
-    }
-
+.task-buttons{
+    display:flex;
+    gap:5px;
 }
