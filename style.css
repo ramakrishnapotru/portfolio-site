@@ -1,64 +1,254 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+html{
+    scroll-behavior:smooth;
 }
 
-header,
-nav,
-main,
-section,
-footer {
-  padding: 20px;
+/* CSS VARIABLES */
+
+:root{
+    --bg-color:linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+    );
+
+    --text-color:white;
+
+    --card-color:#1e293b;
 }
 
-header {
-  background-color: #222;
-  color: white;
+/* LIGHT MODE */
+
+.dark-mode{
+    --bg-color:white;
+
+    --text-color:#111827;
+
+    --card-color:#f5f5f5;
 }
 
-nav ul {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  padding: 0;
+/* BODY */
+
+body{
+    min-height:100vh;
+
+    font-family:Arial, sans-serif;
+
+    margin:0;
+
+    padding:0;
+
+    background-image:var(--bg-color);
+
+    color:var(--text-color);
+
+    transition:0.3s;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
+/* HEADER */
+
+header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:var(--card-color);
+
+    color:var(--text-color);
 }
 
-section {
-  margin: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+/* NAVIGATION */
+
+.nav-links{
+    display:flex;
+
+    gap:20px;
+
+    list-style:none;
 }
 
-a:focus,
-button:focus,
-input:focus,
-textarea:focus {
-  outline: 3px solid blue;
-}
-input,
-textarea,
-button {
-  padding: 10px;
-  margin-top: 5px;
-  width: 100%;
-  max-width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.nav-links a{
+    color:var(--text-color);
+
+    text-decoration:none;
+
+    position:relative;
 }
 
-button {
-  background-color: #222;
-  color: white;
-  cursor: pointer;
+/* NAVBAR HOVER */
+
+.nav-links a:hover{
+    color:#60a5fa;
 }
 
-button:hover {
-  background-color: #444;
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:2px;
+
+    background:#60a5fa;
+
+    left:0;
+
+    bottom:-5px;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* HERO SECTION */
+
+.hero{
+    text-align:center;
+
+    padding:140px 20px;
+}
+
+/* HERO ANIMATION */
+
+.hero-content{
+    animation:fadeIn 1.5s ease;
+}
+
+/* PROFILE IMAGE */
+
+.profile-img{
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:20px;
+
+    border:4px solid #60a5fa;
+}
+
+/* BUTTON */
+
+button{
+    padding:10px 20px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+/* BUTTON HOVER */
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* SKILLS SECTION */
+
+.skills-container{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
+
+    padding:20px;
+}
+
+/* SKILL CARDS */
+
+.skill-card{
+
+    background:var(--card-color);
+
+    padding:30px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+
+    transition:0.3s;
+}
+
+/* CARD HOVER */
+
+.skill-card:hover{
+    transform:translateY(-10px);
+}
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#111827;
+
+    color:white;
+
+    margin-top:40px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .hero{
+        padding:50px 20px;
+    }
+
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
 }

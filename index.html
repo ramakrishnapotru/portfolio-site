@@ -2,53 +2,165 @@
 <html lang="en">
 
 <head>
+
+    <!-- SEO Meta Tags -->
     <meta name="robots" content="index, follow">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Rama Krishna Portfolio</title>
+    <meta charset="UTF-8">
 
-  <meta name="description" content="Accessible HTML5 Portfolio Website">
-  <meta name="keywords" content="portfolio, HTML5, accessibility">
-  <meta name="author" content="Rama Krishna">
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <title>Rama Krishna Portfolio</title>
+
+    <meta
+    name="description"
+    content="Accessible HTML5 Portfolio Website">
+
+    <meta
+    name="keywords"
+    content="portfolio, HTML5, accessibility, responsive design">
+
+    <meta
+    name="author"
+    content="Rama Krishna">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-  <header>
-    <h1>Rama Krishna</h1>
+    <!-- HEADER -->
+    <header>
 
-    <nav aria-label="Main Navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+        <!-- LOGO -->
+        <h1 class="logo">
+            Rama Krishna
+        </h1>
 
-  <main>
+        <!-- NAVIGATION -->
+        <nav
+        class="navbar"
+        aria-label="Main Navigation">
 
-    <section>
-      <h2>Welcome</h2>
-      <p>This is my accessible portfolio website built using semantic HTML5.</p>
-    </section>
+            <ul class="nav-links">
 
-    <section>
-      <h2>Skills</h2>
-      <article>
-        <p>HTML5, CSS3, Accessibility, SEO</p>
-      </article>
-    </section>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
 
-  </main>
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
 
-  <footer>
-    <p>&copy; 2026 Rama Krishna</p>
-  </footer>
+                <li>
+                    <a href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- DARK MODE BUTTON -->
+        <button
+        id="theme-toggle"
+        aria-label="Toggle Dark Mode">
+
+            🌙
+
+        </button>
+
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section
+        id="home"
+        class="hero">
+
+            <article class="hero-content">
+
+                <h2>
+                    Hello, I'm Rama Krishna
+                </h2>
+
+                <p>
+                    Frontend Developer &
+                    Creative Designer
+                </p>
+
+                <button
+                aria-label="View Projects">
+
+                    View Projects
+
+                </button>
+
+            </article>
+
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+
+            <h2>Skills</h2>
+
+            <div class="skills-container">
+
+                <article class="skill-card">
+                    HTML5
+                </article>
+
+                <article class="skill-card">
+                    CSS3
+                </article>
+
+                <article class="skill-card">
+                    Accessibility
+                </article>
+
+                <article class="skill-card">
+                    SEO
+                </article>
+
+                <article class="skill-card">
+                    Responsive Design
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            &copy; 2026 Rama Krishna
+        </p>
+
+    </footer>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
 
 </body>
 
