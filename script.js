@@ -1,171 +1,39 @@
-const taskInput =
-document.getElementById("taskInput");
+alert("JS Working");
 
-const addBtn =
-document.getElementById("addBtn");
+const apiKey = "eeb07b3a35dcf1bb990b736d2f03d8c1";
 
-const taskList =
-document.getElementById("taskList");
+const searchBtn = document.getElementById("searchBtn");
 
-const filterButtons =
-document.querySelectorAll(".filter-btn");
+searchBtn.addEventListener("click", async () => {
 
-let tasks =
-JSON.parse(localStorage.getItem("tasks")) || [];
+    const city =
+    document.getElementById("cityInput").value;
 
-let currentFilter = "all";
-
-/* SAVE TASKS */
-
-function saveTasks(){
-
-    localStorage.setItem(
-        "tasks",
-        JSON.stringify(tasks)
+    const response =
+    await fetch(
+`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     );
 
-}
+    const data =
+    await response.json();
 
-/* DISPLAY TASKS */
+    console.log(data);
 
-function renderTasks(){
+    document.getElementById("cityName").textContent =
+    data.name;
 
-    taskList.innerHTML = "";
+    document.getElementById("temperature").textContent =
+    "Temperature: " + data.main.temp + "°C";
 
-    let filteredTasks = tasks.filter(task => {
+    document.getElementById("humidity").textContent =
+    "Humidity: " + data.main.humidity + "%";
 
-        if(currentFilter === "active"){
-            return !task.completed;
-        }
+    document.getElementById("windSpeed").textContent =
+    "Wind Speed: " + data.wind.speed + " m/s";
 
-        if(currentFilter === "completed"){
-            return task.completed;
-        }
-
-        return true;
-    });
-
-    filteredTasks.forEach((task, index) => {
-
-        const li =
-        document.createElement("li");
-
-        if(task.completed){
-            li.classList.add("completed");
-        }
-
-        li.innerHTML = `
-
-            <span>${task.text}</span>
-
-            <div class="task-buttons">
-
-                <button onclick="toggleTask(${index})">
-                    ✓
-                </button>
-
-                <button onclick="editTask(${index})">
-                    Edit
-                </button>
-
-                <button onclick="deleteTask(${index})">
-                    Delete
-                </button>
-
-            </div>
-
-        `;
-
-        taskList.appendChild(li);
-
-    });
-
-}
-
-/* ADD TASK */
-
-addBtn.addEventListener("click", () => {
-
-    const text =
-    taskInput.value.trim();
-
-    if(text === "") return;
-
-    tasks.push({
-        text,
-        completed:false
-    });
-
-    saveTasks();
-
-    renderTasks();
-
-    taskInput.value = "";
+    document.getElementById("weatherCondition").textContent =
+    "Condition: " + data.weather[0].main;
 
 });
-
-/* DELETE */
-
-function deleteTask(index){
-
-    tasks.splice(index,1);
-
-    saveTasks();
-
-    renderTasks();
-
-}
-
-/* COMPLETE */
-
-function toggleTask(index){
-
-    tasks[index].completed =
-    !tasks[index].completed;
-
-    saveTasks();
-
-    renderTasks();
-
-}
-
-/* EDIT */
-
-function editTask(index){
-
-    const updated =
-    prompt(
-        "Edit task",
-        tasks[index].text
-    );
-
-    if(updated !== null){
-
-        tasks[index].text = updated;
-
-        saveTasks();
-
-        renderTasks();
-
-    }
-
-}
-
-/* FILTERS */
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        currentFilter =
-        button.dataset.filter;
-
-        renderTasks();
-
-    });
-
-});
-
-/* INITIAL RENDER */
-
-renderTasks();
+document.body.style.background =
+"linear-gradient(135deg,#0f172a,#1e3a8a)";
